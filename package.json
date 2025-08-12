@@ -1,0 +1,18 @@
+{
+  "name": "battleship-cli-app",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "start-game": "bun run src/core/game.service.ts"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.8.1"
+  }
+}
