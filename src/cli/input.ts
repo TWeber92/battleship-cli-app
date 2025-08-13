@@ -11,9 +11,9 @@ export class Input {
         { name: "4x4", value: 4 },
         { name: "5x5", value: 5 },
         { name: "6x6", value: 6 },
+        { name: "Quit Game", value: null },
       ],
     });
-    Display.SizeSelection(size as BoardSize);
     return size as BoardSize;
   }
 

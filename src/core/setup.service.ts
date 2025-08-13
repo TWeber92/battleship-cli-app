@@ -2,10 +2,17 @@ import type { BoardSize } from "../models/types";
 import type { Cell } from "../models/cell";
 import { Display } from "../cli/display";
 
-export class Setup {
-  processGuess(cell: Cell) {
+export class SetupService {
+  processGuess(cell: Cell): boolean {
+    if (cell.hit) {
+      console.clear();
+      console.log(Display.alreadyHit);
+      return false;
+    }
     cell.hit = true;
-    return cell.type;
+    const isHit = cell.type !== "empty";
+    Display.hitOrMiss(isHit);
+    return isHit;
   }
   inputParser(guess: string, boardSize: BoardSize): [number, number] | null {
     const letter = guess[0]?.toUpperCase();
@@ -13,7 +20,8 @@ export class Setup {
     let row = letter!.charCodeAt(0) - "A".charCodeAt(0);
     let col = number - 1;
     if (row < 0 || row >= boardSize || col < 0 || col >= boardSize) {
-      Display.invalidCoords;
+      console.clear();
+      console.log(Display.invalidCoords);
       return null;
     }
     return [row, col];

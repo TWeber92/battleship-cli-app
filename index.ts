@@ -1,1 +1,3 @@
-console.log("Hello via Bun!");
+import { GameService } from "./src/core/game.service";
+
+new GameService().start();

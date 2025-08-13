@@ -5,7 +5,8 @@ import { Ship } from "../models/ship";
 import type { BoardSize, GridCoord, ShipType } from "../models/types";
 
 export class BoardService {
-  createBoard(size: BoardSize): Board {
+  createBoard(size: BoardSize): Board | null {
+    if (!size) return null;
     const grid: Cell[][] = Array.from({ length: size }, () =>
       Array.from({ length: size }, () => ({
         type: "empty",

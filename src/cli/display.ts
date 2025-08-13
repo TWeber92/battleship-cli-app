@@ -1,4 +1,3 @@
-import { Setup } from "../core/setup.service";
 import type { Cell } from "../models/cell";
 import type { Ship } from "../models/ship";
 import type { BoardSize } from "../models/types";
@@ -53,13 +52,16 @@ export class Display {
 
   static quitMessage = "See you next time!";
 
-  static SizeSelection(size: BoardSize): string {
-    return `You selected ${size}x${size}. Let's play!`;
-  }
-
   static invalidCoords = "Invalid coordinates! Try Again.";
 
+  static alreadyHit = "You have already chosen that Coordinate, try again.";
+
+  static sizeSelection(size: BoardSize): void {
+    return console.log(`You selected ${size}x${size}. Let's play!`);
+  }
+
   static hitOrMiss(isHit: boolean): void {
+    console.clear();
     console.log(isHit ? "Hit! 🔥" : "Miss 💦");
   }
 
